@@ -25,4 +25,4 @@
 
 #HSLIDE
 
----?image=http://www.icinga.org/wp-content/uploads/2009/05/icinga_logo4.png
+![Logo](http://www.icinga.org/wp-content/uploads/2009/05/icinga_logo4.png)
