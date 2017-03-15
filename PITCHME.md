@@ -78,6 +78,8 @@ Monitoringszenarien abbilden kann.
 ![Cluster](assets/cluster2.png)
 
 
+#HSLIDE
+## Grundlagen
 
-
+![Cluster](assets/Icinga2_Grundprinzip.svg)
 
