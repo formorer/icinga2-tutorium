@@ -26,3 +26,27 @@
 #HSLIDE
 
 ![Logo](http://www.icinga.org/wp-content/uploads/2009/05/icinga_logo4.png)
+
+#VSLIDE
+## Was ist Icinga2
+
+Icinga2 ist ein OpenSource Monitoring System das einfache und komplexe 
+Monitoringszenarien abbilden kann. 
+<br />
+**Icinga2 ist kein Nagios Fork**
+
+#VSLIDE
+## Features
+
+* Clusterfähig
+* komplexe Konfigurationssprache
+* Remote Agent
+* Erweiterbar
+* kompatibel zu den Monitoring Plugins
+* Trending via
+  * Graphite
+  * InfluxDB
+  * PNP4Nagios
+  * OpenTSDB
+* Nativer Windows Support (Agent)
+* semantisches Logging via GELF
