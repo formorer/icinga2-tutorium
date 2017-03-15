@@ -17,6 +17,12 @@
 # VSLIDE
 ## Wer sind sie / wer seid ihr? 
 
+* Du / Sie? 
+* Tätigkeitsfeld
+* Erfahrungen mit Monitoring
+* Erfahrungen mit Icinga2
+* Erwartungen an das Tutorium
+
 #HSLIDE
 
 ## Tip!
