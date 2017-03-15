@@ -36,7 +36,7 @@ Monitoringszenarien abbilden kann.
 **Icinga2 ist kein Nagios Fork**
 
 #VSLIDE
-## Features
+## Features I
 
 * Clusterfähig
 * komplexe Konfigurationssprache
@@ -48,5 +48,36 @@ Monitoringszenarien abbilden kann.
   * InfluxDB
   * PNP4Nagios
   * OpenTSDB
+
+#VSLIDE
+## Features II
+
 * Nativer Windows Support (Agent)
 * semantisches Logging via GELF
+* Darstellung von Businessprozessen
+* ITL
+
+#VSLIDE
+## Clustering
+
+* Master/Satellite
+* Master/Master (HA)
+* Automatische Lastverteilung (Worker)
+* Mehrstufige Setups
+* Konfigurationssynchronisation
+* X509
+
+#VSLIDE
+## Master mit Satelliten
+
+![Cluster](assets/cluster1.png)
+
+#VSLIDE
+## HA Master
+
+![Cluster](assets/cluster2.png)
+
+
+
+
+
