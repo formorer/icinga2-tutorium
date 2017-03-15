@@ -81,5 +81,5 @@ Monitoringszenarien abbilden kann.
 #HSLIDE
 ## Grundlagen
 
-![Cluster](assets/Icinga2_Grundprinzip.svg)
+![Cluster](https://raw.githubusercontent.com/formorer/icinga2-tutorium/ffg/assets/Icinga2_Grundprinzip.svg)
 
