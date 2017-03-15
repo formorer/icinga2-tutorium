@@ -8,7 +8,7 @@
 
 * Senior Consultant credativ GmbH
 * Debian/GRML Open Source Entwickler
-* >15 Jahre Erfahrung mit Monitoring
+* über 15 Jahre Erfahrung mit Monitoring
 * Scrum Master
 
 #HSLIDE
