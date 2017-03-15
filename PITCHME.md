@@ -4,7 +4,7 @@
 #### Frühjahrsfachgespräch der GUUG 2017
 
 #HSLIDE
-# Vorstellungsrunde
+## Vorstellungsrunde
 
 #VSLIDE
 ## Wer bin ich? 
@@ -14,7 +14,7 @@
 * über 15 Jahre Erfahrung mit Monitoring
 * Scrum Master
 
-# VSLIDE
+#VSLIDE
 ## Wer sind sie / wer seid ihr? 
 
 * Du / Sie? 
