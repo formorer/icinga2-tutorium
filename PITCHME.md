@@ -3,6 +3,9 @@
 ## Icinga2 Tutorium
 #### Frühjahrsfachgespräch der GUUG 2017
 
+#VSLIDE
+# Vorstellungsrunde
+
 #HSLIDE
 ## Wer bin ich? 
 
@@ -10,6 +13,10 @@
 * Debian/GRML Open Source Entwickler
 * über 15 Jahre Erfahrung mit Monitoring
 * Scrum Master
+
+# HSLIDE
+
+## Wer sind sie / wer seid ihr? 
 
 #HSLIDE
 
