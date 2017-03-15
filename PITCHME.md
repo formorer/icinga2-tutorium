@@ -3,10 +3,10 @@
 ## Icinga2 Tutorium
 #### Frühjahrsfachgespräch der GUUG 2017
 
-#VSLIDE
+#HSLIDE
 # Vorstellungsrunde
 
-#HSLIDE
+#VSLIDE
 ## Wer bin ich? 
 
 * Senior Consultant credativ GmbH
@@ -14,8 +14,7 @@
 * über 15 Jahre Erfahrung mit Monitoring
 * Scrum Master
 
-# HSLIDE
-
+# VSLIDE
 ## Wer sind sie / wer seid ihr? 
 
 #HSLIDE
