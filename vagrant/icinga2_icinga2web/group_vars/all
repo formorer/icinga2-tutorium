@@ -1,0 +1,25 @@
+---
+# defaults file for icinga2_ido
+icinga2_ido_dbuser: icinga2
+icinga2_ido_dbpass: icinga2
+icinga2_ido_db: icinga2ido
+postgresql_users:
+  - name: "{{ icinga2_ido_dbuser }}"
+    pass: "{{ icinga2_ido_dbpass }}"
+
+postgresql_databases:
+  - name: "{{ icinga2_ido_db }}"
+    owner: "{{ icinga2_ido_dbuser }}"          
+
+sql_dir: /opt/migrations/icinga2
+flyway_root: /opt/flyway
+flyway_config:
+  database:
+    host: localhost
+    port: 5432
+    dbms: postgresql
+    name: "{{ icinga2_ido_db }}"
+    user: "{{ icinga2_ido_dbuser }}"
+    password: "{{ icinga2_ido_dbpass }}"
+  schemas: "public"
+flyway_locations: filesystem:{{ sql_dir }}

@@ -1,0 +1,5 @@
+dependencies: 
+  - ANXS.postgresql
+  - icinga2
+  - flyway
+

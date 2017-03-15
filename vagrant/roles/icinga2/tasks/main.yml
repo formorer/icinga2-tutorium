@@ -1,0 +1,19 @@
+---
+# tasks file for icinga2
+
+- name: add key for debmon repo
+  apt_key:
+    data: "{{ lookup('file', 'debmon.key') }}"
+    state: present
+
+- name: add debmon repo
+  apt_repository:
+      repo: "deb http://debmon.org/debmon debmon-{{ ansible_distribution_release }} main"
+      state: present
+      update_cache: yes
+
+- name: install icinga2
+  apt:
+      name: icinga2
+      state: present
+

@@ -1,0 +1,50 @@
+---
+# tasks file for icinga2_ido
+- name: install ido
+  apt:
+    name: icinga2-ido-pgsql
+    state: present
+
+
+- name: setup ido configuration
+  template:
+      src: ido-pgsql.conf.j2
+      dest: /etc/icinga2/features-available/ido-pgsql.conf
+      owner: nagios
+      group: nagios
+  notify:
+    - restart icinga2
+
+- name: enable ido extension
+  file:
+    src: /etc/icinga2/features-available/ido-pgsql.conf
+    dest: /etc/icinga2/features-enabled/ido-pgsql.conf
+    state: link
+  notify:
+    - restart icinga2
+
+- name: install java
+  apt:
+    name: default-jre
+    state: present
+
+- name: create schema dir
+  file:
+    state: directory
+    dest: "{{ flyway_locations }}"
+
+- name: copy sql schema
+  copy:
+    src: sql/
+    dest: "{{ sql_dir }}"
+
+- name: run flyway
+  command: flyway migrate
+  register: flyway_state
+
+- name: restart icinga2
+  service:
+    name: icinga2
+    state: restarted
+  when: flyway_state.stdout.find('Successfully applied')
+ 

@@ -1,0 +1,30 @@
+---
+- name: Check if flyway installed and not outdated
+  stat: path={{flyway_binary}}
+  register: flyway_status
+
+- name: Creating directory for flyway
+  file: path={{flyway_root}} state=directory
+  when: flyway_status.stat.mode|default(0) != "0755"
+
+- name: Downloading flyway
+  get_url: url={{flyway_real_url}} dest={{flyway_root}}
+  when: flyway_status.stat.mode|default(0) != "0755"
+
+- name: Unpacking flyway
+  unarchive: copy=no src={{flyway_root}}/flyway-commandline-{{flyway_version}}.tar.gz dest={{flyway_root}} creates={{flyway_binary}}
+  when: flyway_status.stat.mode|default(0) != "0755"
+
+- name: removing downloaded copy
+  file: path={{flyway_root}}/flyway-commandline-{{flyway_version}}.tar.gz state=absent
+  when: flyway_status.stat.mode|default(0) != "0755"
+
+- name: creating synmink in /usr/bin
+  file: src={{flyway_binary}} dest={{flyway_symlink_locaion}}/flyway state=link
+
+- name: fixing permissions to binary
+  file: path={{flyway_binary}} mode=755 state=file
+
+- name: Configuring flyway.properties
+  template: src=flyway.conf.j2 dest={{flyway_root}}/flyway-{{flyway_version}}/conf/flyway.conf
+

@@ -1,0 +1,14 @@
+/**
+ * The db_ido_pgsql library implements IDO functionality
+ * for PostgreSQL.
+ */
+
+library "db_ido_pgsql"
+
+object IdoPgsqlConnection "ido-pgsql" {
+  user = "{{ icinga2_ido_dbuser }}",
+  password = "{{ icinga2_ido_dbpass }}",
+  host = "localhost",
+  database = "{{ icinga2_ido_db }}"
+}
+

@@ -1,0 +1,15 @@
+---
+flyway_version: "4.1.2"
+flyway_download_url: "http://repo1.maven.org/maven2/org/flywaydb/flyway-commandline/%s/flyway-commandline-%s.tar.gz"
+flyway_root: /opt/flyway
+flyway_symlink_locaion: /usr/bin
+flyway_config:
+  database:
+    dbms: postgresql
+    host: localhost
+    port: 5432
+    name: example
+    user: postgres
+    password: postgres
+  schemas: public
+flyway_table: schema_history

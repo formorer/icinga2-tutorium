@@ -1,0 +1,15 @@
+---
+# tasks file for icinga2_ido
+- name: install icingaweb2
+  apt:
+    name: icingaweb2
+    state: present
+
+- name: update php.ini
+  ini_file:
+    dest: /etc/php5/apache2/php.ini
+    section: Date
+    option: date.timezone
+    value: Europe/Berlin
+  notify:
+    - restart apache2
