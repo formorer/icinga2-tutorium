@@ -9,6 +9,6 @@
     - icingaweb2 
     - icinga2_master
 
-- hosts: satellite
+- hosts: satellite*:remote*
   roles:
     - icinga2_satellite

@@ -85,6 +85,7 @@
     name: /etc/icinga2/zones.d/{{ ansible_hostname }}
     state: directory
   delegate_to: master
+  when: ansible_hostname | match("satellite*")
 
 - name: drop host config on master
   template:
@@ -94,3 +95,4 @@
   notify:
     - restart icinga2
     - restart master
+  when: ansible_hostname | match("satellite*")
