@@ -2,4 +2,9 @@
 - hosts: all
   roles:
     - defaults
+    - hosts
+
+- hosts: master
+  roles:
+    - defaults
     - icingaweb2 
