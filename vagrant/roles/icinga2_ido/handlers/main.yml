@@ -1,6 +1,2 @@
 ---
 # handlers file for icinga2_ido
-- name: restart icinga2
-  service:
-    name: icinga2
-    state: restarted
