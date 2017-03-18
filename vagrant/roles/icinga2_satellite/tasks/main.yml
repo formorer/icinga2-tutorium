@@ -1,0 +1,96 @@
+---
+# tasks file for icinga2_satellite
+- name: create pki dir
+  file:
+    state: directory
+    name: /etc/icinga2/pki
+    owner: nagios
+    group: nagios
+    mode: 0770
+
+- name: read ca from master
+  slurp:
+    src: /etc/icinga2/pki/master.crt
+  register: master_ca
+  delegate_to: master
+
+- name: check if not is already setup
+  stat:
+    path: /etc/icinga2/pki/{{ ansible_fqdn }}.key
+  register: keyfile
+
+- name: write ca to satellite dir
+  copy:
+    dest: /etc/icinga2/pki/master.crt
+    content: "{{ master_ca['content'] | b64decode }}"
+    owner: nagios
+    group: nagios
+
+- name: get token for host
+  shell: icinga2 pki ticket --cn "{{ ansible_fqdn }}"
+  register: ticket
+  delegate_to: master
+  when: keyfile.stat.islnk is not defined
+
+- name: setup node
+  command: >
+    icinga2 node setup 
+      --cn "{{ ansible_fqdn }}"
+      --accept-config
+      --accept-command
+      --zone "{{ ansible_fqdn }}"
+      --endpoint "master,master"
+      --master_host master
+      --ticket {{ ticket.stdout }}
+      --trustedcert "/etc/icinga2/pki/master.crt"
+  when: keyfile.stat.islnk is not defined
+  notify:
+    - restart icinga2
+
+- name: remove unused features
+  file:
+    name: /etc/icinga2/conf.d/{{ item }}.conf
+    state: absent
+  with_items:
+    - notification
+  notify:
+    - icinga2 restarted
+
+- name: remove unused configs
+  file:
+    state: absent
+    name: "/etc/icinga2/conf.d/{{item}}"
+  with_items:
+    - apt.conf
+    - downtimes.conf
+    - groups.conf
+    - hosts.conf
+    - notifications.conf
+    - services.conf
+    - templates.conf
+    - timeperiods.conf
+    - users.conf
+  notify:
+    - restart icinga2
+
+- name: install zones.conf
+  template:
+    src: zones.conf.j2
+    dest: /etc/icinga2/zones.conf
+  notify:
+    - restart icinga2
+
+- name: create zones dir for host on master
+  file:
+    name: /etc/icinga2/zones.d/{{ ansible_hostname }}
+    state: directory
+  delegate_to: master
+
+- name: drop host config on master
+  template:
+    src: host.conf.j2
+    dest: /etc/icinga2/zones.d/{{ ansible_hostname }}/host.conf
+  delegate_to: master
+  notify:
+    - restart icinga2
+    - restart master

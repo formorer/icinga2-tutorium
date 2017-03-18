@@ -94,4 +94,3 @@
     NOT EXISTS ( SELECT 1 FROM icingaweb_user WHERE name = 'admin' );"
   become: yes
   become_user: postgres
-

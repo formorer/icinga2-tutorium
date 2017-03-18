@@ -1,2 +1,53 @@
 ---
 # tasks file for icinga2_master
+
+- name: check for already existing ca
+  stat:
+    path: /var/lib/icinga2/ca/ca.crt
+  register: ca
+
+- name: enable master mode
+  command: >
+    icinga2 node setup
+    --master
+  when: ca.stat.islnk is not defined
+  notify:
+    - restart icinga2
+
+- name: enable command file
+  file:
+    src: /etc/icinga2/features-available/command.conf
+    dest: /etc/icinga2/features-enabled/command.conf
+    state: link
+    
+- name: install custom zones.conf
+  template:
+    src: zones.conf.j2
+    dest: /etc/icinga2/zones.conf
+    owner: nagios
+    group: nagios
+  notify:
+    - restart icinga2
+
+- name: create global zone directory
+  file:
+    name: /etc/icinga2/zones.d/global-templates
+    state: directory
+
+- name: copy global template to global-template directory
+  copy:
+    src: global-templates/
+    dest: /etc/icinga2/zones.d/global-templates
+  notify:
+    - restart icinga2
+
+- name: remove obsolete local configs
+  file:
+    state: absent
+    name: "/etc/icinga2/conf.d/{{ item }}"
+  with_items:
+    - notifications.conf
+    - templates.conf
+    - services.conf
+  notify:
+    - restart icinga2

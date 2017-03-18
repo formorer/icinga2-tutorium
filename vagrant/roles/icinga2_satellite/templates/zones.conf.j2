@@ -1,0 +1,20 @@
+/* generated zone config */
+
+object Endpoint "master" {
+    host = "master"
+}
+
+object Zone "master" {
+    endpoints = [ "master" ]
+}
+
+object Endpoint "{{ ansible_hostname}}" {
+}
+
+object Zone "{{ ansible_hostname}}" {
+    endpoints = [ "{{ ansible_hostname }}" ]
+    parent = "master"
+}
+
+object Zone "global-templates" {
+}

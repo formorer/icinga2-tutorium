@@ -1,0 +1,14 @@
+object Host "{{ ansible_hostname }}" {
+  /* Import the default host template defined in `templates.conf`. */
+  import "generic-host"
+
+  /* Specify the address attributes for checks e.g. `ssh` or `http`. */
+  address = "{{ ansible_eth1.ipv4.address }}"
+
+  /* Set custom attribute `os` for hostgroup assignment in `groups.conf`. */
+  vars.os = "Linux"
+
+    vars.disks["disk"] = {
+    /* No parameters. */
+  }
+}

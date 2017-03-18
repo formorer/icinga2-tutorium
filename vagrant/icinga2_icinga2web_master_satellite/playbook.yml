@@ -3,8 +3,12 @@
   roles:
     - defaults
     - hosts
-
+    
 - hosts: master
   roles:
-    - defaults
     - icingaweb2 
+    - icinga2_master
+
+- hosts: satellite
+  roles:
+    - icinga2_satellite

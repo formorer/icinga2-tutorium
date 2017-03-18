@@ -1,0 +1,7 @@
+---
+# handlers file for icinga2_satellite
+- name: restart master
+  service:
+    name: icinga2
+    state: restarted
+  delegate_to: master

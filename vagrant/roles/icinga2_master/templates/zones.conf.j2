@@ -1,0 +1,19 @@
+/* generated zones.conf */
+
+{% for host in groups['all'] %}
+object Endpoint "{{ host }}" {
+}
+
+object Zone "{{ host }}" {
+    endpoints = [ "{{ host }}" ]
+
+    {% if host != "master" %}
+        parent = "master"
+    {% endif %}
+}
+
+{% endfor %}
+
+object Zone "global-templates" {
+  global = true
+}
