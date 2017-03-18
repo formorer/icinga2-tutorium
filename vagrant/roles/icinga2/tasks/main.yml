@@ -17,3 +17,10 @@
       name: icinga2
       state: present
 
+- name: enable command file
+  file:
+    src: /etc/icinga2/features-available/command.conf
+    dest: /etc/icinga2/features-enabled/command.conf
+    state: link
+  notify:
+   - restart icinga2

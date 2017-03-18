@@ -1,0 +1,8 @@
+---
+- hosts: all
+  roles:
+    - defaults
+    - icingaweb2 
+    - influxdb
+    - icinga2_influxdb
+    - grafana

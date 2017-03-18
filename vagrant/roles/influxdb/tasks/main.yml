@@ -1,0 +1,37 @@
+---
+# tasks file for influxdb
+
+- name: install apt-https
+  apt:
+    name: apt-transport-https
+    state: present
+
+- name: install influxdb repo key
+  apt_key:
+    data: "{{ lookup('file', 'influxdb.key') }}"
+    state: present
+
+- name: add influxdb repo
+  apt_repository:
+    repo: "deb https://repos.influxdata.com/debian jessie stable"
+    state: present
+
+- name: install influxdb
+  apt:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - influxdb
+    - python3-influxdb
+
+- name: enable and start influxdb service
+  service:
+    name: influxdb
+    enabled: yes
+    state: started
+
+- name: Create database
+  command: influx -execute 'CREATE DATABASE icinga2'
+  notify:
+    - restart icinga2
+

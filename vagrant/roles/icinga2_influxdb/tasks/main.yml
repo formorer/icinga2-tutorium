@@ -1,0 +1,26 @@
+---
+# tasks file for icinga2_influxdb
+
+- name: install custom influxdb config
+  template:
+    src: influxdb.conf.j2
+    dest: /etc/icinga2/features-available/influxdb.conf
+  notify:
+    - restart icinga2
+
+- name: enable influxdb module
+  file:
+    src: /etc/icinga2/features-available/influxdb.conf
+    dest: /etc/icinga2/features-enabled/influxdb.conf
+    state: link
+  notify:
+    - restart icinga2
+
+- name: copy custom grafana database
+  copy:
+    src: grafana.db
+    dest: /var/lib/grafana/grafana.db
+    owner: grafana
+    group: grafana
+  notify:
+    - restart grafana

@@ -1,0 +1,29 @@
+---
+# tasks file for grafana
+- name: install apt-https
+  apt:
+    name: apt-transport-https
+    state: present
+
+- name: install grafana repo key
+  apt_key:
+    data: "{{ lookup('file', 'grafana.key') }}"
+    state: present
+
+- name: add grafana repo
+  apt_repository:
+    repo: "deb https://packagecloud.io/grafana/testing/debian/ jessie main"
+    state: present
+
+- name: install grafana
+  apt:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - grafana
+
+- name: enable and start grafana service
+  service:
+    name: grafana-server
+    enabled: yes
+    state: started

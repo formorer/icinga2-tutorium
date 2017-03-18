@@ -1,0 +1,10 @@
+---
+# defaults file for icinga2_ido
+icinga2_ido_dbuser: icinga2
+icinga2_ido_dbpass: icinga2
+icinga2_ido_db: icinga2ido
+
+icinga2_web2_dbuser: icingaweb2
+icinga2_web2_dbpass: icingaweb2
+icinga2_web2_db: icingaweb2
+icinga2_web_adminpw: admin

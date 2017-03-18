@@ -12,3 +12,4 @@
 - hosts: satellite*:remote*
   roles:
     - icinga2_satellite
+

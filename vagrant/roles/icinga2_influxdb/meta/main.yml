@@ -1,0 +1,3 @@
+dependencies:
+  - icinga2
+  - grafana
