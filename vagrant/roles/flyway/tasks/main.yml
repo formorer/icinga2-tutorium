@@ -26,5 +26,5 @@
   file: path={{flyway_binary}} mode=755 state=file
 
 - name: Configuring flyway.properties
-  template: src=flyway.conf.j2 dest={{flyway_root}}/flyway-{{flyway_version}}/conf/flyway.conf
+  template: src=flyway.conf.j2 dest={{flyway_configdir}}/flyway-{{ name }}.conf
 

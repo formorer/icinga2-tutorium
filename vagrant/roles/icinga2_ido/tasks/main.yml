@@ -39,7 +39,7 @@
     dest: "{{ sql_dir }}"
 
 - name: run flyway
-  command: flyway migrate
+  command: flyway migrate -configFile={{ flyway_configdir }}/flyway-ido.conf
   register: flyway_state
 
 - name: restart icinga2

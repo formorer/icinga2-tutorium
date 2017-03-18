@@ -1,0 +1,9 @@
+---
+# defaults file for defaults
+default_packages:
+  - vim
+  - nano
+  - grml-etc-core
+  - zsh
+  - mc
+  - curl

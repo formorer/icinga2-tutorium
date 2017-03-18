@@ -13,3 +13,85 @@
     value: Europe/Berlin
   notify:
     - restart apache2
+
+- name: install deps
+  apt:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - php5-intl
+    - php5-pgsql
+    - php5-imagick
+  notify: restart apache2
+
+- name: install java
+  apt:
+    name: default-jre
+    state: present
+
+- name: create schema dir
+  file:
+    state: directory
+    dest: "{{ flyway_locations }}"
+
+- name: copy sql schema
+  copy:
+    src: sql/
+    dest: "{{ sql_dir }}"
+
+- name: run flyway
+  command: flyway migrate -configFile={{ flyway_configdir }}/flyway-icingaweb2.conf
+  register: flyway_state
+
+- name: install web2 configs
+  template:
+    src: "{{ item }}.j2"
+    dest: "/etc/icingaweb2/{{ item }}"
+    owner: www-data
+    group: icingaweb2
+  with_items:
+    - authentication.ini
+    - roles.ini
+    - groups.ini
+    - resources.ini
+    - config.ini
+
+- name: create module directory
+  file:
+    path: /etc/icingaweb2/enabledModules
+    state: directory
+
+- name: create monitoring config directory
+  file:
+    path: /etc/icingaweb2/modules/monitoring
+    state: directory
+
+- name: install monitoring module configs
+  template:
+    src: "{{ item }}.j2"
+    dest: "/etc/icingaweb2/modules/monitoring/{{ item }}"
+    owner: www-data
+    group: icingaweb2
+  with_items:
+    - backends.ini
+    - commandtransports.ini
+
+- name: enable monitoring module
+  file:
+    src: /usr/share/icingaweb2/modules/monitoring
+    dest: /etc/icingaweb2/enabledModules/monitoring
+    state: link
+
+- name: generate password hash
+  command: openssl passwd -1 {{ icinga2_web_adminpw }}
+  register: pwhash
+
+  
+- name: insert admin user if needed
+  postgresql_query:
+    db: "{{ icinga2_web2_db }}"
+    query: "INSERT INTO icingaweb_user (name, active, password_hash) SELECT 'admin', '1', '{{ pwhash.stdout }}' WHERE
+    NOT EXISTS ( SELECT 1 FROM icingaweb_user WHERE name = 'admin' );"
+  become: yes
+  become_user: postgres
+

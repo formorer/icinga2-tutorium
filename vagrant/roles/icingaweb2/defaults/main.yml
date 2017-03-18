@@ -1,1 +1,21 @@
 ---
+sql_dir: /opt/migrations/icingaweb2
+flyway_root: /opt/flyway
+flyway_config:
+  database:
+    host: localhost
+    port: 5432
+    dbms: postgresql
+    name: "{{ icinga2_web2_db }}"
+    user: "{{ icinga2_web2_dbuser }}"
+    password: "{{ icinga2_web2_dbpass }}"
+  schemas: "public"
+flyway_locations: filesystem:{{ sql_dir }}
+
+dbusers:
+  - name: "{{ icinga2_web2_dbuser }}"
+    pass: "{{ icinga2_web2_dbpass }}"
+
+databases:
+  - name: "{{ icinga2_web2_db }}"
+    owner: "{{ icinga2_web2_dbuser }}"

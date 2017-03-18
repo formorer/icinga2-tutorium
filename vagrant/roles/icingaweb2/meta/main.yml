@@ -1,2 +1,5 @@
+
 dependencies: 
   - icinga2_ido
+  - { role: "ANXS.postgresql", postgresql_databases: "{{ databases }}", postgresql_users: "{{ dbusers }}", name: "icingaweb2" }
+  - {role: "flyway",  name: "icingaweb2" }

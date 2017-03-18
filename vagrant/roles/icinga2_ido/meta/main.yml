@@ -1,5 +1,4 @@
 dependencies: 
-  - ANXS.postgresql
   - icinga2
-  - flyway
-
+  - {role: "flyway", name: "ido" }
+  - { role: "ANXS.postgresql", postgresql_databases: "{{ databases }}", postgresql_users: "{{dbusers }}" }

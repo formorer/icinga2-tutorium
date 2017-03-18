@@ -1,0 +1,21 @@
+[icingaweb_db]
+type = "db"
+db = "pgsql"
+host = "localhost"
+port = "5432"
+dbname = "{{ icinga2_web2_db }}"
+username = "{{ icinga2_web2_dbuser }}"
+password = "{{ icinga2_web2_dbpass }}"
+charset = ""
+persistent = "0"
+
+[icinga2ido]
+type = "db"
+db = "pgsql"
+host = "localhost"
+port = "5432"
+dbname = "{{ icinga2_ido_db }}"
+username = "{{ icinga2_ido_dbuser }}"
+password = "{{ icinga2_ido_dbpass }}"
+charset = ""
+persistent = "0"

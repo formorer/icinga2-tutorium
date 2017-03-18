@@ -1,0 +1,20 @@
+---
+# tasks file for defaults
+- name: install grml repo key
+  apt_key:
+    data: "{{ lookup('file', 'grml.key') }}"
+    state: present
+
+- name: add grml repo
+  apt_repository:
+    repo: "deb http://deb.grml.org grml-stable main"
+    state: present
+
+- name: install useful packages
+  apt:
+    name: "{{ item }}"
+    state: present
+  with_items: "{{ default_packages }}"
+
+- name: change default shell
+  command: chsh root -s /usr/bin/zsh
