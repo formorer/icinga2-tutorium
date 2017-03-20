@@ -461,10 +461,56 @@ TEMPLATE
 ```
 #HSLIDE
 
-### Eskalationen
+## Eskalationen
+
+#VSLIDE
 
 * Eskalation ermöglichen es Notifications nach einer bestimmten Zeit zu eskalieren 
-* Mehrere Eskalationen können grundsätzlich gleichzeitig 
+* Mehrere Eskalationen können gleichzeitig und überlappend aktiv sein
+
+#VSLIDE
+
+### Ein Beispiel
+
+Wenn nach 10 Minuten keiner auf den Alarm per E-Mail reagiert hat, wird eine SMS 
+an das Team herausgeschickt. Sollte nach weiteren 20 Minuten auch hier keiner reagieren 
+erzeugt Asterisk mit Sprachsynthese einen bösen Anruf an den Vorgesetzen.
+
+#VSLIDE
+
+### Konfiguration
+
+```cpp
+object User "first_alert" {
+  display_name = "First Alert by Mail"
+  vars.email = "it@localhost"
+}
+object User "second_alert" {
+  display_name = "Second Alert by SMS"
+
+  vars.mobile = "+49 1723 1234567"
+}
+apply Notification "first_alert" to Service {
+  import "generic-notification"
+  command = "mail-notification"
+  users = [ "first_alert" ]
+  times = {
+    begin = 0m
+    end = 30m
+  }
+  assign where service.name == "ping4"
+}
+apply Notification "second_alert" to Service {
+  import "generic-notification"
+  command = "sms-notification"
+  users = [ "second_alert" ]
+  times = {
+    begin = 30m
+    end = 60m
+  }
+  assign where service.name == "ping4"
+}
+```
 
 #HSLIDE
 
