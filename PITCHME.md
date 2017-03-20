@@ -156,7 +156,7 @@ apply Service "procs" {
 
 #HSLIDE
 
-## Konfigurationssprache
+## Syntax
 
 #VSLIDE
 
