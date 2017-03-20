@@ -583,6 +583,18 @@ apply Dependency "disable-host-service-checks" to Service {
 
 #HSLIDE
 
+## Acknowledgments
+
+#VSLIDE
+
+* Ein Acknowledgment zeigt das man einen Alarm zur Kenntniss genommen hat
+* Nach einem Acknowledge erfolgen keine weiteren Alarme
+* Das Webfrontend sortiert die bestätigten Alarme hinter die unbestätigten Alarme
+* Sticky Acknowledgement: das Acknowledgment verschwindet erst bei einem **OK** Status
+* Expiring Ack: Wenn sich um das Problem nicht nach einer bestimmten Zeit gekümmert wurde, wird die Bestätigung entfernt
+
+#HSLIDE
+
 ## Erweiterungen / Integration
 
 #VSLIDE
