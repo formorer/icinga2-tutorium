@@ -88,3 +88,7 @@ Monitoringszenarien abbilden kann.
 ## Verzeichnisstruktur
 
 +++?gist=26a91af511a2bc7afb16a0816f9a6b39
+
+## Host Objekt
+
++++?gist=3b79570a22fba8fe9e863d756b5724d9
