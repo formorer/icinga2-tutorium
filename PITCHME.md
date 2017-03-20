@@ -269,7 +269,7 @@ object Notification "localhost-ping-notification" {
 
 #VSLIDE
 
----?image=https://github.com/Icinga/icingaweb2-module-director/raw/master/doc/screenshot/director/readme/director_main_screen.png
+![screenshot](https://github.com/Icinga/icingaweb2-module-director/raw/master/doc/screenshot/director/readme/director_main_screen.png)
 
 #VSLIDE
 
@@ -282,7 +282,7 @@ object Notification "localhost-ping-notification" {
 
 #VSLIDE
 
----?image=https://github.com/Icinga/icingaweb2-module-businessprocess/raw/master/doc/screenshot/13_web-components-tile-renderer/1302_tile-and-subtree.png
+![screenshot](https://github.com/Icinga/icingaweb2-module-businessprocess/raw/master/doc/screenshot/13_web-components-tile-renderer/1302_tile-and-subtree.png)
 
 #VSLIDE
 
@@ -301,4 +301,4 @@ object Notification "localhost-ping-notification" {
 
 #VSLIDE
 
----?image=https://github.com/Icinga/dashing-icinga2/raw/master/public/dashing_icinga2_overview.png
+![screenshot](https://github.com/Icinga/dashing-icinga2/raw/master/public/dashing_icinga2_overview.png)
