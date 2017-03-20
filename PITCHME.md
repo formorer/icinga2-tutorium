@@ -220,13 +220,35 @@ null
 
 #VSLIDE
 
-### Apply Direktive
+### Assign where Direktive
 
-Die Apply Direktive ist es die Hosts/Services und Notifications zusammenbringt. 
-<br/>
-Sie ermöglicht es anhand von Ausdrücken Objekte mit Hosts zu verbinden
+* Die Assign Direktive wendet Objekte auf andere Objekte an
+* Services auf Hosts
+* Notifications auf Services/Hosts
+* Abhängigkeiten
+* wird ergänzt durch die Ignore Direktive
 
+#VSLIDE
 
+```cpp
+object HostGroup "postgresql-server" {
+  display_name = "PostgreSQL Server"
+
+  assign where match("*psql*", host.name)
+  ignore where match("*test", host.name)
+}
+```
+
+#VSLIDE
+
+```
+apply Notification "notify-complex-customer" to Service {
+  import "compex-customer-notification"
+
+  assign where match("*has gold support 24x7*", service.notes) && (host.vars.customer == "customer-xy" || host.vars.always_notify == true)
+  ignore where match("*internal", host.name) || (service.vars.priority < 2 && host.vars.is_clustered == true)
+}
+```
 
 #HSLIDE
 
@@ -282,6 +304,12 @@ object Notification "localhost-ping-notification" {
 }
 ```
 
+#VSLIDE
+
+### Eskalationen
+
+* Eskalation ermöglichen es Notifications nach einer bestimmten Zeit zu eskalieren 
+* Mehrere Eskalationen können grundsätzlich gleichzeitig 
 
 #HSLIDE
 
