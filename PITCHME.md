@@ -107,6 +107,8 @@ apply Service "procs" {
 
 ####[check_procs](https://docs.icinga.com/icinga2/latest/doc/module/icinga2/chapter/plugin-check-commands#plugin-check-command-processes)
 
+#VSLIDE
+
 ## Override Variables in Service
 
 
