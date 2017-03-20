@@ -79,10 +79,10 @@ Monitoringszenarien abbilden kann.
 
 
 #HSLIDE
-# Grundlagen
+## Grundlagen
 
 #VSLIDE
-## Grundrinzip
+### Grundrinzip
 
 ![Cluster](https://raw.githubusercontent.com/formorer/icinga2-tutorium/ffg/assets/Icinga2_Grundprinzip.png)
 
@@ -101,7 +101,7 @@ Monitoringszenarien abbilden kann.
 * Hosts können den [Status](https://docs.icinga.com/icinga2/latest/doc/module/icinga2/chapter/monitoring-basics#service-states) **OK**, **WARNING**, **CRITICAL** und **UNKNOWN** haben.
 
 #VSLIDE
-## Hard und Softstates
+### Hard und Softstates
 
 Ein Service Check muss eine bestimmte Anzahl (`max_check_attempts`) von Ergebnissen durchlaufen bevor Notifizierungen ausgelöst werden und der **HARD** Status erreicht wird. 
 
@@ -111,19 +111,19 @@ Ein Service Check muss eine bestimmte Anzahl (`max_check_attempts`) von Ergebnis
 
 #VSLIDE
 
-## Verzeichnisstruktur
+### Verzeichnisstruktur
 
 +++?gist=26a91af511a2bc7afb16a0816f9a6b39
 
 #VSLIDE
 
-## Host Objekt
+### Host Objekt
 
 +++?gist=3b79570a22fba8fe9e863d756b5724d9
 
 #VSLIDE
 
-## Simple Service
+### Simple Service
 
 ```cpp
 apply Service "procs" {
@@ -139,7 +139,7 @@ apply Service "procs" {
 
 #VSLIDE
 
-## Override Variables in Service
+### Override Variables in Service
 
 ```cpp
 apply Service "procs" {
@@ -160,7 +160,7 @@ apply Service "procs" {
 
 #VSLIDE
 
-## Kommentare
+### Kommentare
 
 ```cpp
 // Kommentar
@@ -172,7 +172,7 @@ apply Service "procs" {
 
 #VSLIDE
 
-## [einfache Datentypen](https://docs.icinga.com/icinga2/latest/doc/module/icinga2/chapter/language-reference?highlight-search=array#types)
+### [einfache Datentypen](https://docs.icinga.com/icinga2/latest/doc/module/icinga2/chapter/language-reference?highlight-search=array#types)
 
 ```cpp
 27.3 # floating point number
@@ -200,14 +200,14 @@ null
 ```
 
 #VSLIDE
-## Arrays
+### Arrays
 
 ```cpp
   [ "hello", 42 ]
 ```
 
 #VSLIDE
-## Dictionarys
+### Dictionarys
 
 ```cpp
 {
@@ -220,7 +220,7 @@ null
 
 #VSLIDE
 
-## Apply Direktive
+### Apply Direktive
 
 Die Apply Direktive ist es die Hosts/Services und Notifications zusammenbringt. 
 <br/>
@@ -230,11 +230,11 @@ Sie ermöglicht es anhand von Ausdrücken Objekte mit Hosts zu verbinden
 
 #HSLIDE
 
-# Check Plugins
+## Check Plugins
 
 #VSLIDE
 
-## Basics
+### Basics
 
 * Icinga2 selbst liefert keine Checks mit
 * Alle Checks die mit Nagios kompatibel sind werden auch mit Icinga2 funktionieren
@@ -242,20 +242,20 @@ Sie ermöglicht es anhand von Ausdrücken Objekte mit Hosts zu verbinden
 
 #VSLIDE
 
-## Monitoring Plugins
+### Monitoring Plugins
 
 * **Die** Standard Checks für Nagios/Icinga/Icinga2
 * [monitoring-plugins.org](https://www.monitoring-plugins.org/)
 
 #VSLIDE
 
-## Icinga Exchange
+### Icinga Exchange
 
 * [Portal für Checks](https://exchange.icinga.com/)
 
 #HSLIDE
 
-# [Notifications](https://docs.icinga.com/icinga2/latest/doc/module/icinga2/chapter/object-types#objecttype-notification)
+## [Notifications](https://docs.icinga.com/icinga2/latest/doc/module/icinga2/chapter/object-types#objecttype-notification)
 
 #VSLIDE
 
@@ -267,7 +267,7 @@ Sie ermöglicht es anhand von Ausdrücken Objekte mit Hosts zu verbinden
 
 #VSLIDE
 
-## Notification Beispiel
+### Notification Beispiel
 
 ```cpp
 object Notification "localhost-ping-notification" {
@@ -285,11 +285,11 @@ object Notification "localhost-ping-notification" {
 
 #HSLIDE
 
-# Erweiterungen / Integration
+## Erweiterungen / Integration
 
 #VSLIDE
 
-## [Icinga-web2-director](https://github.com/Icinga/icingaweb2-module-director)
+### [Icinga-web2-director](https://github.com/Icinga/icingaweb2-module-director)
 
 * Icingaweb2 Modul
 * *Konfigurationswebfrontend* für Icinga2
@@ -320,7 +320,7 @@ object Notification "localhost-ping-notification" {
 
 #VSLIDE
 
-## Slack Integration
+### Slack Integration
 
 * [formorer/icinga2-slack-notification](https://github.com/formorer/icinga2-slack-notification)
 * [spjmurray/slack-icinga2](https://github.com/spjmurray/slack-icinga2) (2way)
@@ -328,7 +328,7 @@ object Notification "localhost-ping-notification" {
 
 #VSLIDE
 
-## [Icinga2 Dashing](https://github.com/Icinga/dashing-icinga2)
+### [Icinga2 Dashing](https://github.com/Icinga/dashing-icinga2)
 
 * Sinatra/Dashing basiertes Dashboard
 * Benutzt die API
