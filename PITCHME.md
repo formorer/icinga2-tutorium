@@ -595,6 +595,18 @@ apply Dependency "disable-host-service-checks" to Service {
 
 #HSLIDE
 
+## Agenten (FIXME)
+
+#HSLIDE 
+
+##Distributed Monitoring (FIXME)
+
+#HSLIDE
+
+## Schnittstellen (FIXME)
+
+#HSLIDE
+
 ## Erweiterungen / Integration
 
 #VSLIDE
