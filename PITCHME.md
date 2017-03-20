@@ -518,7 +518,7 @@ apply Notification "second_alert" to Service {
 #VSLIDE
 
 * Downtimes ermöglichen es Ausnahmezeiten festzulegen in denen keine Notifizierungen erfolgen sollen
-* z.B.: (un)geplante Wartungen, Zeiten mit Hoher Last
+* z.B.: (un)geplante Wartungen, Zeiten mit hoher Last
 
 #VSLIDE
 
@@ -590,8 +590,8 @@ apply Dependency "disable-host-service-checks" to Service {
 * Ein Acknowledgment zeigt das man einen Alarm zur Kenntniss genommen hat
 * Nach einem Acknowledge erfolgen keine weiteren Alarme
 * Das Webfrontend sortiert die bestätigten Alarme hinter die unbestätigten Alarme
-* Sticky Acknowledgement: das Acknowledgment verschwindet erst bei einem **OK** Status
-* Expiring Ack: Wenn sich um das Problem nicht nach einer bestimmten Zeit gekümmert wurde, wird die Bestätigung entfernt
+* **Sticky** Acknowledgement: das Acknowledgment verschwindet erst bei einem **OK** Status
+* **Expiring** Ack: Wenn sich um das Problem nicht nach einer bestimmten Zeit gekümmert wurde, wird die Bestätigung entfernt
 
 #HSLIDE
 
