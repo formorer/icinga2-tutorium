@@ -83,3 +83,8 @@ Monitoringszenarien abbilden kann.
 
 ![Cluster](https://raw.githubusercontent.com/formorer/icinga2-tutorium/ffg/assets/Icinga2_Grundprinzip.png)
 
+#VSLIDE
+
+## Verzeichnisstruktur
+
++++?gist=26a91af511a2bc7afb16a0816f9a6b39
