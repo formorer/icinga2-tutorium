@@ -236,13 +236,17 @@ null
 
 #HSLIDE
 
-## [Notifications](https://docs.icinga.com/icinga2/latest/doc/module/icinga2/chapter/object-types#objecttype-notification)
+# [Notifications](https://docs.icinga.com/icinga2/latest/doc/module/icinga2/chapter/object-types#objecttype-notification)
+
+#VSLIDE
 
 * Notifications sind Scripte die bei bestimmten Events aufgerufen werden
 * Notifications können an einen User und/oder eine Gruppe gebunden werden.
 * Jede Notification kann einen Filter haben der bestimmt zu welchen Zeiten sie ausgelöst wird
 * Jeder User kann einen Filter haben der bestimmt wann er notifiziert werden will. 
 * Über `types` und `states` Filter kann man einstellen bei welchen Events die Notification auslöst.
+
+#VSLIDE
 
 ## Notification Beispiel
 
