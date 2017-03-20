@@ -115,6 +115,8 @@ Ein Service Check muss eine bestimmte Anzahl (`max_check_attempts`) von Ergebnis
 
 +++?gist=26a91af511a2bc7afb16a0816f9a6b39
 
+#VSLIDE
+
 ## Host Objekt
 
 +++?gist=3b79570a22fba8fe9e863d756b5724d9
@@ -153,7 +155,11 @@ apply Service "procs" {
 ####[Custom Attributed and Macros](https://docs.icinga.com/icinga2/latest/doc/module/icinga2/chapter/monitoring-basics#custom-attributes)
 
 #HSLIDE
-## Ein paar Grundlagen
+
+# Grundlagen
+
+#VSLIDE
+
 ### Kommentare
 
 ```cpp
