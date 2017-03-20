@@ -131,7 +131,7 @@ apply Service "procs" {
 
 * Icinga2 selbst liefert keine Checks mit
 * Alle Checks die mit Nagios kompatibel sind werden auch mit Icinga2 funktionieren
-* Viele Checks sind in der (ITL)[https://docs.icinga.com/icinga2/latest/doc/module/icinga2/chapter/plugin-check-commands] vordefiniert
+* Viele Checks sind in der [ITL](https://docs.icinga.com/icinga2/latest/doc/module/icinga2/chapter/plugin-check-commands) vordefiniert
 
 #VSLIDE
 
@@ -139,10 +139,10 @@ apply Service "procs" {
 
 
 * **Die** Standard Checks für Nagios/Icinga/Icinga2
-* (monitoring-plugins.org)[https://www.monitoring-plugins.org/]
+* [monitoring-plugins.org](https://www.monitoring-plugins.org/)
 
 #VSLIDE
 
 ## Icinga Exchange
 
-* (Portal für Checks)[https://exchange.icinga.com/]
+* [Portal für Checks](https://exchange.icinga.com/)
