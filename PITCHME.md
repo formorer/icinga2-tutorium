@@ -511,6 +511,50 @@ apply Notification "second_alert" to Service {
   assign where service.name == "ping4"
 }
 ```
+#HSLIDE
+
+## Downtimes
+
+#VSLIDE
+
+* Downtimes ermöglichen es Ausnahmezeiten festzulegen in denen keine Notifizierungen erfolgen sollen
+* z.B.: (un)geplante Wartungen, Zeiten mit Hoher Last
+
+#VSLIDE
+
+### Fixed Downtimes
+
+* Beginnen und enden zu einem festgelegten Zeitpunkt
+
+### Flexible Downtimes
+
+* Flexibles Fenster
+* Beginnt erst ab eintreten eines Events während der Downtime Periode
+* Endet nach eintreten des Events und der definierten Downtime Dauer
+
+#VSLIDE
+
+```cpp
+apply ScheduledDowntime "backup-downtime" to Service {
+  author = "icingaadmin"
+  comment = "Scheduled downtime for backup"
+
+  ranges = {
+    monday = "02:00-03:00"
+    tuesday = "02:00-03:00"
+    wednesday = "02:00-03:00"
+    thursday = "02:00-03:00"
+    friday = "02:00-03:00"
+    saturday = "02:00-03:00"
+    sunday = "02:00-03:00"
+  }
+
+  assign where "backup" in service.groups
+}
+```
+#HSLIDE
+
+## Dependencies
 
 #HSLIDE
 
