@@ -286,6 +286,7 @@ object Host "hostname" {
   ...
   vars.http_vhosts["http"] = {
     http_uri = "/"
+    http_ssl = true
   }
 }
 
@@ -297,10 +298,9 @@ apply Service "vhost_" for (vhost => config in host.vars.http_vhosts) {
 }
 ```
 
-
 #HSLIDE
 
-## Check Plugins
+## Checks
 
 #VSLIDE
 
@@ -322,6 +322,22 @@ apply Service "vhost_" for (vhost => config in host.vars.http_vhosts) {
 ### Icinga Exchange
 
 * [Portal für Checks](https://exchange.icinga.com/)
+
+#VSLIDE
+
+### Funktionsweise von Plugins
+
+* Icinga interpretiert den Returnstatus eines Plugins
+
+RC | Result
+---|-------
+0  | OK / UP
+1  | WARN / UP
+2  | CRITICAL / DOWN
+3  | UNKNOWN / DOWN
+
+
+
 
 #HSLIDE
 
