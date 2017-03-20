@@ -156,7 +156,7 @@ apply Service "procs" {
 
 #HSLIDE
 
-## Syntax
+## Konfigurationssprache
 
 #VSLIDE
 
@@ -176,18 +176,26 @@ apply Service "procs" {
 
 ```cpp
 27.3 # floating point number
+```
+```cpp
 2.5m # duration (ms (milliseconds), 
        s (seconds), 
        m (minutes), 
        h (hours) and 
        d (days))
+```
+```cpp
 "Hello World" # string
 {{{
   Multi
   Line
   String
 }}}
+```
+```cpp
 true / false # boolean
+```
+```cpp
 null
 ```
 
