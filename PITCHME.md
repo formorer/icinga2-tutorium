@@ -211,7 +211,11 @@ null
 
 #HSLIDE
 
-## Checks und wo sie herkommen
+# Checks
+
+#VSLIDE
+
+## Basics
 
 * Icinga2 selbst liefert keine Checks mit
 * Alle Checks die mit Nagios kompatibel sind werden auch mit Icinga2 funktionieren
