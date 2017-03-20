@@ -122,3 +122,25 @@ apply Service "procs" {
 ```
 
 ####(Custom Attributed and Macros)[https://docs.icinga.com/icinga2/latest/doc/module/icinga2/chapter/monitoring-basics#custom-attributes]
+
+#HSLIDE
+
+## Checks und wo sie herkommen
+
+* Icinga2 selbst liefert keine Checks mit
+* Alle Checks die mit Nagios kompatibel sind werden auch mit Icinga2 funktionieren
+* Viele Checks sind in der (ITL)[https://docs.icinga.com/icinga2/latest/doc/module/icinga2/chapter/plugin-check-commands] vordefiniert
+
+#VSLIDE
+
+## Monitoring Plugins
+
+
+* **Die** Standard Checks für Nagios/Icinga/Icinga2
+* (monitoring-plugins.org)[https://www.monitoring-plugins.org/]
+
+#VSLIDE
+
+## Icinga Exchange
+
+* (Portal für Checks)[https://exchange.icinga.com/]
