@@ -340,6 +340,7 @@ RC | Result
 
 * Ausgabe von Plugins wird ignoriert
 * Sollte den [Monitoring Plugin Development Guidelines](https://www.monitoring-plugins.org/doc/guidelines.html) folgen
+* Plugins werden grundsätzlich ohne Shell aufgerufen
 
 #VSLIDE
 
@@ -379,7 +380,6 @@ object CheckCommand "check_http" {
 }
 ```
 
-
 #HSLIDE
 
 ## [Notifications](https://docs.icinga.com/icinga2/latest/doc/module/icinga2/chapter/object-types#objecttype-notification)
@@ -410,6 +410,56 @@ object Notification "localhost-ping-notification" {
 ```
 
 #VSLIDE
+
+### notification command
+```cpp
+object NotificationCommand "mail-host-notification" {
+  import "plugin-notification-command"
+
+  command = [ SysconfDir + "/icinga2/scripts/mail-host-notification.sh" ]
+
+  env = {
+    NOTIFICATIONTYPE = "$notification.type$"
+    HOSTALIAS = "$host.display_name$"
+    HOSTADDRESS = "$address$"
+    HOSTSTATE = "$host.state$"
+    LONGDATETIME = "$icinga.long_date_time$"
+    HOSTOUTPUT = "$host.output$"
+    NOTIFICATIONAUTHORNAME = "$notification.author$"
+    NOTIFICATIONCOMMENT = "$notification.comment$"
+    HOSTDISPLAYNAME = "$host.display_name$"
+    USEREMAIL = "$user.email$"
+  }
+}
+```
+#VSLIDE
+
+### notification script
+```bash
+#!/bin/sh
+template=`cat <<TEMPLATE
+***** Icinga  *****
+
+Notification Type: $NOTIFICATIONTYPE
+
+Service: $SERVICEDESC
+Host: $HOSTALIAS
+Address: $HOSTADDRESS
+State: $SERVICESTATE
+
+Date/Time: $LONGDATETIME
+
+Additional Info: $SERVICEOUTPUT
+
+Comment: [$NOTIFICATIONAUTHORNAME] $NOTIFICATIONCOMMENT
+TEMPLATE
+`
+
+/usr/bin/printf "%b" "$template" \\
+| mail -s "$NOTIFICATIONTYPE - $HOSTDISPLAYNAME - $SERVICEDISPLAYNAME is $SERVICESTATE" $USEREMAIL
+
+```
+#HSLIDE
 
 ### Eskalationen
 
