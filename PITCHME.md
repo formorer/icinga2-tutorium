@@ -336,7 +336,48 @@ RC | Result
 2  | CRITICAL / DOWN
 3  | UNKNOWN / DOWN
 
+#VSLIDE
 
+* Ausgabe von Plugins wird ignoriert
+* Sollte den [Monitoring Plugin Development Guidelines](https://www.monitoring-plugins.org/doc/guidelines.html) folgen
+
+#VSLIDE
+
+### check command
+
+```cpp
+object CheckCommand "check_http" {
+  command = [ PluginDir + "/check_http" ]
+
+  arguments = {
+    "-H" = "$http_vhost$"
+    "-I" = "$http_address$"
+    "-u" = "$http_uri$"
+    "-p" = "$http_port$"
+    "-S" = {
+      set_if = "$http_ssl$"
+    }
+    "--sni" = {
+      set_if = "$http_sni$"
+    }
+    "-a" = {
+      value = "$http_auth_pair$"
+      description = "Username:password on sites with basic authentication"
+    }
+    "--no-body" = {
+      set_if = "$http_ignore_body$"
+    }
+    "-r" = "$http_expect_body_regex$"
+    "-w" = "$http_warn_time$"
+    "-c" = "$http_critical_time$"
+    "-e" = "$http_expect$"
+  }
+
+  vars.http_address = "$address$"
+  vars.http_ssl = false
+  vars.http_sni = false
+}
+```
 
 
 #HSLIDE
