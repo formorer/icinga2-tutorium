@@ -572,7 +572,7 @@ apply Dependency "internet" to Host {
   disable_checks = true
   disable_notifications = true
 
-  assign where host.name != "dsl-router"
+  assign where host.name != "router"
 }
 
 apply Dependency "disable-host-service-checks" to Service {
