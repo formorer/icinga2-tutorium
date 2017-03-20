@@ -226,7 +226,6 @@ null
 
 #HSLIDE
 
-## 
 ## [Notifications](https://docs.icinga.com/icinga2/latest/doc/module/icinga2/chapter/object-types#objecttype-notification)
 
 * Notifications sind Scripte die bei bestimmten Events aufgerufen werden
@@ -249,3 +248,57 @@ object Notification "localhost-ping-notification" {
   types = [ Problem, Recovery ]
 }
 ```
+
+#HSLIDE
+
+# Erweiterungen / Integration
+
+#VSLIDE
+
+## [Icinga-web2-director](https://github.com/Icinga/icingaweb2-module-director)
+
+* Icingaweb2 Modul
+* *Konfigurationswebfrontend* für Icinga2
+* Module für den Import von verschiedenen Quellen:
+  * CSV
+  * Puppetdb
+  * LDAP
+  * Dateien
+  * AWS
+* REST API
+
+#VSLIDE
+
+---?image=https://github.com/Icinga/icingaweb2-module-director/raw/master/doc/screenshot/director/readme/director_main_screen.png
+
+#VSLIDE
+
+# [Icingaweb2-Business-Process-View] (https://github.com/Icinga/icingaweb2-module-businessprocess)
+
+* Modellierung von Business Views
+* *Manager* Kompatibilität
+* Simulation von Incidents
+* Webbasiserter Editor
+
+#VSLIDE
+
+---?image=https://github.com/Icinga/icingaweb2-module-businessprocess/raw/master/doc/screenshot/13_web-components-tile-renderer/1302_tile-and-subtree.png
+
+#VSLIDE
+
+## Slack Integration
+
+* [formorer/icinga2-slack-notification](https://github.com/formorer/icinga2-slack-notification)
+* [spjmurray/slack-icinga2](https://github.com/spjmurray/slack-icinga2) (2way)
+* [richardhauswald/icinga2-slack-notifications](https://exchange.icinga.com/richardhauswald/icinga2-slack-notifications)
+
+#VSLIDE
+
+## [Icinga2 Dashing](https://github.com/Icinga/dashing-icinga2)
+
+* Sinatra/Dashing basiertes Dashboard
+* Benutzt die API
+
+#VSLIDE
+
+---?image=https://github.com/Icinga/dashing-icinga2/raw/master/public/dashing_icinga2_overview.png
