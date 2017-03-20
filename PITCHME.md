@@ -156,11 +156,11 @@ apply Service "procs" {
 
 #HSLIDE
 
-# Grundlagen
+# Konfigurationssprache
 
 #VSLIDE
 
-### Kommentare
+## Kommentare
 
 ```cpp
 // Kommentar
@@ -172,7 +172,7 @@ apply Service "procs" {
 
 #VSLIDE
 
-### [einfache Datentypen](https://docs.icinga.com/icinga2/latest/doc/module/icinga2/chapter/language-reference?highlight-search=array#types)
+## [einfache Datentypen](https://docs.icinga.com/icinga2/latest/doc/module/icinga2/chapter/language-reference?highlight-search=array#types)
 
 ```cpp
 27.3 # floating point number
@@ -192,14 +192,14 @@ null
 ```
 
 #VSLIDE
-### Arrays
+## Arrays
 
 ```cpp
   [ "hello", 42 ]
 ```
 
 #VSLIDE
-### Dictionarys
+## Dictionarys
 
 ```cpp
 {
@@ -208,6 +208,13 @@ null
   ssl = true
 }
 ```
+
+
+#VSLIDE
+
+## apply Direktive
+
+* 
 
 #HSLIDE
 
@@ -262,6 +269,7 @@ object Notification "localhost-ping-notification" {
   types = [ Problem, Recovery ]
 }
 ```
+
 
 #HSLIDE
 
