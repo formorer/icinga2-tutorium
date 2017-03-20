@@ -307,7 +307,7 @@ object Notification "localhost-ping-notification" {
 
 #VSLIDE
 
-# [Icingaweb2-Business-Process-View] (https://github.com/Icinga/icingaweb2-module-businessprocess)
+# [Icingaweb2-Business-Process-View](https://github.com/Icinga/icingaweb2-module-businessprocess)
 
 * Modellierung von Business Views
 * *Manager* Kompatibilität
