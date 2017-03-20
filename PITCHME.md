@@ -212,13 +212,17 @@ null
 
 #VSLIDE
 
-## apply Direktive
+## Apply Direktive
 
-* 
+Die Apply Direktive ist es die Hosts/Services und Notifications zusammenbringt. 
+<br/>
+Sie ermöglicht es anhand von Ausdrücken Objekte mit Hosts zu verbinden
+
+
 
 #HSLIDE
 
-# Checks
+# Check Plugins
 
 #VSLIDE
 
