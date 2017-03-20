@@ -79,9 +79,34 @@ Monitoringszenarien abbilden kann.
 
 
 #HSLIDE
-## Grundlagen
+# Grundlagen
+
+#VSLIDE
+## Grundrinzip
 
 ![Cluster](https://raw.githubusercontent.com/formorer/icinga2-tutorium/ffg/assets/Icinga2_Grundprinzip.png)
+
+### Hosts
+
+* Zu jedem gemonitorten Objekt gehört ein Hostobjekt
+* Die Verfügbarkeit des Hosts ergibt sich durch den Status des `hostalive` checks
+* Hosts können den [Status](https://docs.icinga.com/icinga2/latest/doc/module/icinga2/chapter/monitoring-basics#host-states) **UP**, **DOWN** und **UNREACHABLE** haben
+
+#VSLIDE
+###Services
+
+* Services werden immer einem Host zugeordnet
+* Ihr Status ergibt sich aus dem Ergebniss ihres `check_command`s
+* Hosts können den [Status](https://docs.icinga.com/icinga2/latest/doc/module/icinga2/chapter/monitoring-basics#service-states) **OK**, **WARNING**, **CRITICAL** und **UNKNOWN** haben.
+
+#VSLIDE
+## Hard und Softstates
+
+Ein Service Check muss eine bestimmte Anzahl (`max_check_attempts`) von Ergebnissen durchlaufen bevor Notifizierungen ausgelöst werden und der **HARD** Status erreicht wird. 
+
+#HSLIDE
+
+# Die Konfiguration
 
 #VSLIDE
 
@@ -127,7 +152,6 @@ apply Service "procs" {
 ####[Custom Attributed and Macros](https://docs.icinga.com/icinga2/latest/doc/module/icinga2/chapter/monitoring-basics#custom-attributes)
 
 #HSLIDE
-
 ## Ein paar Grundlagen
 ### Kommentare
 
@@ -198,3 +222,10 @@ null
 ## Icinga Exchange
 
 * [Portal für Checks](https://exchange.icinga.com/)
+
+#HSLIDE
+
+## [Notifications]()
+
+* Notifications sind Scripte die bei bestimmten Events aufgerufen werden
+* 
