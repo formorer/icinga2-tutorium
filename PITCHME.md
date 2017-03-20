@@ -142,7 +142,7 @@ apply Service "procs" {
 #VSLIDE
 
 ## Ein paar Grundlagen
-### (einfache Datentypen)[https://docs.icinga.com/icinga2/latest/doc/module/icinga2/chapter/language-reference?highlight-search=array#types]
+### [einfache Datentypen](https://docs.icinga.com/icinga2/latest/doc/module/icinga2/chapter/language-reference?highlight-search=array#types)
 
 ```cpp
 27.3 # floating point number
