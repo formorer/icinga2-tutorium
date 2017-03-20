@@ -92,3 +92,33 @@ Monitoringszenarien abbilden kann.
 ## Host Objekt
 
 +++?gist=3b79570a22fba8fe9e863d756b5724d9
+
+## Simple Service
+
+```cpp
+apply Service "procs" {
+  import "generic-service"
+
+  check_command = "procs"
+
+  assign where host.name == "myhostname"
+}
+```
+
+####[check_procs](https://docs.icinga.com/icinga2/latest/doc/module/icinga2/chapter/plugin-check-commands#plugin-check-command-processes)
+
+## Override Variables in Service
+
+
+```cpp
+apply Service "procs" {
+  import "generic-service"
+
+  check_command = "procs"
+
+  vars.procs_argument = "some argument"
+  assign where host.name == "myhostname"
+}
+```
+
+####(Custom Attributed and Macros)[https://docs.icinga.com/icinga2/latest/doc/module/icinga2/chapter/monitoring-basics#custom-attributes]
