@@ -226,7 +226,26 @@ null
 
 #HSLIDE
 
-## [Notifications]()
+## 
+## [Notifications](https://docs.icinga.com/icinga2/latest/doc/module/icinga2/chapter/object-types#objecttype-notification)
 
 * Notifications sind Scripte die bei bestimmten Events aufgerufen werden
-* 
+* Notifications können an einen User und/oder eine Gruppe gebunden werden.
+* Jede Notification kann einen Filter haben der bestimmt zu welchen Zeiten sie ausgelöst wird
+* Jeder User kann einen Filter haben der bestimmt wann er notifiziert werden will. 
+* Über `types` und `states` Filter kann man einstellen bei welchen Events die Notification auslöst.
+
+## Notification Beispiel
+
+```cpp
+object Notification "localhost-ping-notification" {
+  host_name = "localhost"
+  service_name = "ping4"
+
+  command = "mail-notification"
+
+  users = [ "user1", "user2" ]
+
+  types = [ Problem, Recovery ]
+}
+```
