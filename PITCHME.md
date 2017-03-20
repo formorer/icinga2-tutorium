@@ -125,7 +125,7 @@ apply Service "procs" {
 }
 ```
 
-####(Custom Attributed and Macros)[https://docs.icinga.com/icinga2/latest/doc/module/icinga2/chapter/monitoring-basics#custom-attributes]
+####[Custom Attributed and Macros](https://docs.icinga.com/icinga2/latest/doc/module/icinga2/chapter/monitoring-basics#custom-attributes)
 
 #HSLIDE
 
@@ -138,7 +138,6 @@ apply Service "procs" {
 #VSLIDE
 
 ## Monitoring Plugins
-
 
 * **Die** Standard Checks für Nagios/Icinga/Icinga2
 * [monitoring-plugins.org](https://www.monitoring-plugins.org/)
