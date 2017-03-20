@@ -113,7 +113,6 @@ apply Service "procs" {
 
 ## Override Variables in Service
 
-
 ```cpp
 apply Service "procs" {
   import "generic-service"
@@ -126,6 +125,51 @@ apply Service "procs" {
 ```
 
 ####[Custom Attributed and Macros](https://docs.icinga.com/icinga2/latest/doc/module/icinga2/chapter/monitoring-basics#custom-attributes)
+
+#HSLIDE
+
+## Ein paar Grundlagen
+### Kommentare
+
+```cpp
+// Kommentar
+/*
+ * Auch ein Kommentar
+*/
+# sogar ich bin ein Kommentar
+```
+
+#VSLIDE
+
+## Ein paar Grundlagen
+### (einfache Datentypen)[https://docs.icinga.com/icinga2/latest/doc/module/icinga2/chapter/language-reference?highlight-search=array#types]
+
+```cpp
+27.3 # floating point number
+2.5m # duration (ms (milliseconds), s (seconds), m (minutes), h (hours) and d (days))
+"Hello World" # string
+{{{
+  Multi
+  Line
+  String
+}}}
+true / false # boolean
+null
+```
+
+### Arrays
+
+```cpp
+  [ "hello", 42 ]
+```
+
+### Dictionarys
+
+```cpp
+  address = "192.168.0.1"
+  port = 443
+  ssl = true
+```
 
 #HSLIDE
 
