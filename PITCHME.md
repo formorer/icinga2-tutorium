@@ -141,7 +141,6 @@ apply Service "procs" {
 
 #VSLIDE
 
-## Ein paar Grundlagen
 ### [einfache Datentypen](https://docs.icinga.com/icinga2/latest/doc/module/icinga2/chapter/language-reference?highlight-search=array#types)
 
 ```cpp
@@ -172,9 +171,11 @@ null
 ### Dictionarys
 
 ```cpp
+{
   address = "192.168.0.1"
   port = 443
   ssl = true
+}
 ```
 
 #HSLIDE
