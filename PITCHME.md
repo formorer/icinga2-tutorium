@@ -86,6 +86,7 @@ Monitoringszenarien abbilden kann.
 
 ![Cluster](https://raw.githubusercontent.com/formorer/icinga2-tutorium/ffg/assets/Icinga2_Grundprinzip.png)
 
+#VSLIDE
 ### Hosts
 
 * Zu jedem gemonitorten Objekt gehört ein Hostobjekt
