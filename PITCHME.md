@@ -556,6 +556,31 @@ apply ScheduledDowntime "backup-downtime" to Service {
 
 ## Dependencies
 
+#VSLIDE
+
+* Abhängigkeiten werden benutzt um Beziehungen zwischen Hosts und/oder Services auszudrücken
+* Abhängigkeiten werden zur Erreichbarkeitsberechnung benutzt
+* Abhängige Services / Hosts erzeugen keine Notifications wenn ihr Parent nicht erreichbar ist
+* zwischen einem Host und seinen Services besteht eine implizite Abhängigkeit
+* Abhängigkeiten reagieren nur auf Hard States (ausser `ignore_soft_states` ist `false`)
+
+#VSLIDE
+
+```cpp
+apply Dependency "internet" to Host {
+  parent_host_name = "dsl-router"
+  disable_checks = true
+  disable_notifications = true
+
+  assign where host.name != "dsl-router"
+}
+
+apply Dependency "disable-host-service-checks" to Service {
+  disable_checks = true
+  assign where true
+}
+```
+
 #HSLIDE
 
 ## Erweiterungen / Integration
