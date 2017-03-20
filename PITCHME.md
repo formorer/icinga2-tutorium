@@ -107,7 +107,7 @@ Ein Service Check muss eine bestimmte Anzahl (`max_check_attempts`) von Ergebnis
 
 #HSLIDE
 
-# Die Konfiguration
+## Konfigurationsdateien
 
 #VSLIDE
 
@@ -156,7 +156,7 @@ apply Service "procs" {
 
 #HSLIDE
 
-# Konfigurationssprache
+## Konfigurationssprache
 
 #VSLIDE
 
