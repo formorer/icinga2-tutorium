@@ -146,7 +146,11 @@ apply Service "procs" {
 
 ```cpp
 27.3 # floating point number
-2.5m # duration (ms (milliseconds), s (seconds), m (minutes), h (hours) and d (days))
+2.5m # duration (ms (milliseconds), 
+       s (seconds), 
+       m (minutes), 
+       h (hours) and 
+       d (days))
 "Hello World" # string
 {{{
   Multi
