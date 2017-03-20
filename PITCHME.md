@@ -220,13 +220,13 @@ null
 
 #VSLIDE
 
-### Assign where Direktive
+### Apply Direktive
 
-* Die Assign Direktive wendet Objekte auf andere Objekte an
+* Die Apply Direktive wendet Objekte auf andere Objekte an
 * Services auf Hosts
 * Notifications auf Services/Hosts
 * Abhängigkeiten
-* wird ergänzt durch die Ignore Direktive
+* Scope wird die `assign` und `ignore` Regeln bestimmt
 
 #VSLIDE
 
@@ -245,10 +245,58 @@ object HostGroup "postgresql-server" {
 apply Notification "notify-complex-customer" to Service {
   import "compex-customer-notification"
 
-  assign where match("*has gold support 24x7*", service.notes) && (host.vars.customer == "customer-xy" || host.vars.always_notify == true)
-  ignore where match("*internal", host.name) || (service.vars.priority < 2 && host.vars.is_clustered == true)
+  assign where match("*has gold support 24x7*", service.notes) \\
+    && (host.vars.customer == "customer-xy" || host.vars.always_notify == true)
+  ignore where match("*internal", host.name) || \\
+    (service.vars.priority < 2 && host.vars.is_clustered == true)
 }
 ```
+
+#VSLIDE
+
+###`apply for` Direktive
+
+* Anwenden von Objekten auf Basis von Listen or Dictionaries
+* Ermöglicht komplexe Objekterstellung
+
+#VSLIDE
+### Mit Listen
+
+```cpp
+object Host "hostname" {
+  ...
+  vars.partitions = [ '/, '/boot' ]
+}
+
+apply Service "partition " for (partition in host.vars.partitions) {
+        import "generic-service"
+        check_command = "disk"
+        vars.disk_partition = partition
+        display_name = "Partition " + partition
+        assign where host.vars.partitions
+}
+```
+
+#VSLIDE
+
+### Mit Dictionaries
+
+```cpp
+object Host "hostname" {
+  ...
+  vars.http_vhosts["http"] = {
+    http_uri = "/"
+  }
+}
+
+apply Service "vhost_" for (vhost => config in host.vars.http_vhosts) {
+        import "generic-service"
+        check_command = "http"
+        vars += config
+        display_name = "Virtual Host " + vhost
+}
+```
+
 
 #HSLIDE
 
