@@ -265,7 +265,7 @@ apply Notification "notify-complex-customer" to Service {
 ```cpp
 object Host "hostname" {
   ...
-  vars.partitions = [ '/, '/boot' ]
+  vars.partitions = [ '/', '/boot' ]
 }
 
 apply Service "partition " for (partition in host.vars.partitions) {
