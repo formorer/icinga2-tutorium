@@ -157,12 +157,14 @@ true / false # boolean
 null
 ```
 
+#VSLIDE
 ### Arrays
 
 ```cpp
   [ "hello", 42 ]
 ```
 
+#VSLIDE
 ### Dictionarys
 
 ```cpp
