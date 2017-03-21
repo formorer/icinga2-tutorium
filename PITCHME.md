@@ -829,8 +829,11 @@ now=`date +%s`
 
 ### Clusterchecks in Icinga2 Sprache
 
+#VSLIDE
+
 +++?gist=9f10e82fdc7cd219a5d23fce04d447f1
 
+#VSLIDE
 ### Dynamische Objekterstellung
 
 +++?gist=d32506e1a90a9038c7a2ed9679bee204
