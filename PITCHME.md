@@ -593,9 +593,30 @@ apply Dependency "disable-host-service-checks" to Service {
 * **Sticky** Acknowledgement: das Acknowledgment verschwindet erst bei einem **OK** Status
 * **Expiring** Ack: Wenn sich um das Problem nicht nach einer bestimmten Zeit gekümmert wurde, wird die Bestätigung entfernt
 
+
+#HSLIDE 
+
+## Zonen (FIXME)
+
+
 #HSLIDE
 
 ## Agenten (FIXME)
+
+#VSLIDE
+
+### Icinga2 as Satellite
+
+* Icinga2 im Clustermode wird als Satellit betrieben
+* Konfigurationsdateien werden über Zonensynchronisation verteilt
+* Checks werden vom **Satelliten** gescheduled und ausgeführt
+
+#VSLIDE
+### Icinga2 as Remote Command Exceution Bridge
+
+* Icinga2 wird im Cluster mode als Command Endpoint betrieben
+* Check Commands werden über Zonensynchronisation verteilt
+* Checks werden vom **Master** gescheduled aber vom **Agent** ausgeführt
 
 #HSLIDE 
 
