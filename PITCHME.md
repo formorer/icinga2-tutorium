@@ -152,7 +152,7 @@ apply Service "procs" {
 }
 ```
 
-####[Custom Attributed and Macros](https://docs.icinga.com/icinga2/latest/doc/module/icinga2/chapter/monitoring-basics#custom-attributes)
+####[Custom Attributes and Macros](https://docs.icinga.com/icinga2/latest/doc/module/icinga2/chapter/monitoring-basics#custom-attributes)
 
 #HSLIDE
 
@@ -377,6 +377,33 @@ object CheckCommand "check_http" {
   vars.http_address = "$address$"
   vars.http_ssl = false
   vars.http_sni = false
+}
+```
+
+#HSLIDE
+
+## Passive Checks
+
+#VSLIDE
+
+* Passive Checks führen selbst keine aktiven Tests aus
+* Sie erwarten Ergebnisse von aussen (API/Commandsocket)
+* Über freshness Checks kann beim ausbleiben von Ergebnissen ein Alarm ausgelöst werden (`last check + check interval`)
+
+#VSLIDE
+
+```cpp
+object Service "Passive" {
+  import "generic-service-custom"
+
+  host_name             = "host.domain.com"
+  check_command         = "passive"
+
+  enable_notifications  = 1
+  enable_active_checks  = 1
+  enable_passive_checks = 1
+  max_check_attempts    = 1
+  check_interval        = 87000
 }
 ```
 
@@ -632,9 +659,46 @@ apply Service "apt" {
 }
 ```
 
+#HSLIDE
+
+## Performance Daten
+
+#VSLIDE
+
+* Performance Daten können benutzt werden damit **externe** Systeme diese auswerten können
+* Performance Daten sind maschinenlesbare Ausgaben der Checkergebnisse
+* Sie werden insbesondere für Trending benutzt
+* Die Daten werden **nicht** von Icinga für Monitoring benutzt
+* [Definition](https://www.monitoring-plugins.org/doc/guidelines.html#AEN201)
+
+#VSLIDE
+
+```bash
+ /usr/lib/nagios/plugins/check_disk -u GB -w 10% -c 5% / 
+DISK OK - free space: / 43 GB (18% inode=86%);| /=192GB;212;224;0;236
+```
+
+#VSLIDE
+
+### Populäre Systeme
+
+* InfluxDB + Grafana
+* OpenTSDB + Grafana
+* Graphite + Grafana
+* pnp4nagios
+
 #HSLIDE 
 
-##Distributed Monitoring (FIXME)
+##Distributed Monitoring 
+
+#VSLIDE
+
+### Zonen
+
+* Zonen ermöglichen es mehr als einen Endpunkt für einen bestimmten Bereich zu haben
+* Mehr als einen Endpunkt in einer Parent Zone -> Hochverfügbarkeit
+* Mehr als einen Endpunkt in einer Child Zone -> Lastverteilung
+* HA Features ermöglichen es Features wie IDO oder Notifications hochverfügbar zu betreiben
 
 #HSLIDE
 
@@ -672,6 +736,34 @@ curl -u $ICINGA2_API_USER:$ICINGA2_API_PASSWORD \
      -H 'Accept: application/json' -H 'X-HTTP-Method-Override: DELETE' -X POST \
      -k "https://$ICINGA2_HOST:$ICINGA2_API_PORT/v1/objects/hosts/api_dummy_host_1?cascade=1"
 ```
+
+### Command Socket
+
+* Kommunikation mit Icinga2 über einen Unix Socket
+* von Nagios *geerbt* 
+* kann benutzt werden um bestimmte Aktionen durchzuführen
+* kann nur Acks und Downtimes anlegen
+
+#### Start Service Checks
+```bash
+now=`date +%s`
+/bin/printf "[%lu] START_EXECUTING_SVC_CHECKS\n" $now > $commandfile
+```
+
+#### Add passive Result
+
+```bash
+now=`date +%s`
+/bin/printf "[%lu] PROCESS_SERVICE_CHECK_RESULT;host1;service1;0;OK- Everything Looks Great\n" $now > $commandfile
+```
+
+### Livestatus
+
+* zum Livestatus Plugin von Nagios weitgehend kompatible Schnittstelle
+* nicht gut gepflegt
+* langsam
+* SQL ähnlich
+
 ## Erweiterungen / Integration
 
 #HSLIDE
@@ -723,3 +815,7 @@ curl -u $ICINGA2_API_USER:$ICINGA2_API_PASSWORD \
 #VSLIDE
 
 ![screenshot](https://github.com/Icinga/dashing-icinga2/raw/master/public/dashing_icinga2_overview.png)
+
+### GELF Feature
+
+* Ermöglicht Logs über das GELF Format an Graylog oder Logstash zu senden
