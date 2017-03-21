@@ -819,3 +819,17 @@ now=`date +%s`
 ### GELF Feature
 
 * Ermöglicht Logs über das GELF Format an Graylog oder Logstash zu senden
+
+#HSLIDE
+
+## **Bonus**: abgefahrenes Zeug
+
+#VSLIDE
+
+### Clusterchecks in Icinga2 Sprache
+
++++?gist=9f10e82fdc7cd219a5d23fce04d447f1
+
+### Dynamische Objekterstellung
+
++++?gist=d32506e1a90a9038c7a2ed9679bee204
