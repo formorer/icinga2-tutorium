@@ -7,7 +7,7 @@
 
 ##Bevor wir beginnen
 
----?image=assets/Github.png
+![github](assets/GitHub.png)
 
 ```bash
 # git clone https://github.com/formorer/icinga2-tutorium.git
