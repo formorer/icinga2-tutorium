@@ -3,15 +3,12 @@
     box-shadow: none;
 }
 
-
-/*
 .reveal pre code {
     font-size: 1.3em;
     line-height: 1.2;
 }
-*/
 
 .reveal pre {
-    width: 140%;
+    width: 120%;
     margin-left: -10%;
 }
