@@ -764,9 +764,10 @@ now=`date +%s`
 * langsam
 * SQL ähnlich
 
+#HSLIDE
 ## Erweiterungen / Integration
 
-#HSLIDE
+#VSLIDE
 
 ### [Icinga-web2-director](https://github.com/Icinga/icingaweb2-module-director)
 
