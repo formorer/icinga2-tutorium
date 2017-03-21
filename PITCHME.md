@@ -601,7 +601,7 @@ apply Dependency "disable-host-service-checks" to Service {
 
 #HSLIDE
 
-## Agenten (FIXME)
+## Agenten
 
 #VSLIDE
 
