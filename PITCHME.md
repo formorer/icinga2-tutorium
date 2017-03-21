@@ -625,7 +625,7 @@ apply Dependency "disable-host-service-checks" to Service {
 ```cpp
 object Host "myhost" {
   ...
-  vars.remote_client = "myhost
+  vars.remote_client = "myhost"
 }
 
 apply Service "apt" {
