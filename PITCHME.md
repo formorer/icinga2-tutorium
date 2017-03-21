@@ -97,7 +97,7 @@ Monitoringszenarien abbilden kann.
 ###Services
 
 * Services werden immer einem Host zugeordnet
-* Ihr Status ergibt sich aus dem Ergebniss ihres `check_command`s
+* Ihr Status ergibt sich aus dem Ergebnis ihres `check_command`s
 * Hosts können den [Status](https://docs.icinga.com/icinga2/latest/doc/module/icinga2/chapter/monitoring-basics#service-states) **OK**, **WARNING**, **CRITICAL** und **UNKNOWN** haben.
 
 #VSLIDE
