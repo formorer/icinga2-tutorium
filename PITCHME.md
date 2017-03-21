@@ -7,6 +7,8 @@
 
 ##Bevor wir beginnen
 
+---?image=assets/Github.png
+
 ```bash
 # git clone https://github.com/formorer/icinga2-tutorium.git
 # cd icinga2-tutorium/vagrant/icinga2_icinga2web_grafana
