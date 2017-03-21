@@ -10,9 +10,9 @@
 ![github](assets/GitHub.png)
 
 ```bash
-# git clone https://github.com/formorer/icinga2-tutorium.git
-# cd icinga2-tutorium/vagrant/icinga2_icinga2web_grafana
-# vagrant up
+git clone https://github.com/formorer/icinga2-tutorium.git
+cd icinga2-tutorium/vagrant/icinga2_icinga2web_grafana
+vagrant up
 ```
 
 #HSLIDE
