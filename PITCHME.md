@@ -827,7 +827,7 @@ now=`date +%s`
 
 #VSLIDE
 
-### Clusterchecks in Icinga2 Sprache
+### Clusterchecks in Icinga2 DSL
 
 #VSLIDE
 
