@@ -617,6 +617,26 @@ apply Dependency "disable-host-service-checks" to Service {
 * Icinga2 wird im Cluster mode als Command Endpoint betrieben
 * Check Commands werden über Zonensynchronisation verteilt
 * Checks werden vom **Master** gescheduled aber vom **Agent** ausgeführt
+* Remote Agents werden über den `command_endpoint` angesprochen
+
+#VSLIDE
+### Konfigurationsbeispiel 
+
+```cpp
+object Host "myhost" {
+  ...
+  vars.remote_client = "myhost
+}
+
+apply Service "apt" {
+  import "generic-service"
+  check_command = "apt"
+  if (host.vars.remote_client) {
+    command_endpoint = host.vars.remote_client
+  }
+  assign where host.vars.distribution == "Debian"
+}
+```
 
 #HSLIDE 
 
