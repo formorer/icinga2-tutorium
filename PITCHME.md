@@ -399,7 +399,7 @@ object CheckCommand "check_http" {
 #VSLIDE
 
 * Passive Checks führen selbst keine aktiven Tests aus
-* Sie erwarten Ergebnisse von aussen (API/Commandsocket)
+* Sie erwarten Ergebnisse von außen (API/Commandsocket)
 * Über freshness Checks kann beim ausbleiben von Ergebnissen ein Alarm ausgelöst werden (`last check + check interval`)
 
 #VSLIDE
