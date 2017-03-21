@@ -82,7 +82,7 @@ Monitoringszenarien abbilden kann.
 ## Grundlagen
 
 #VSLIDE
-### Grundrinzip
+### Grundprinzip
 
 ![Cluster](https://raw.githubusercontent.com/formorer/icinga2-tutorium/ffg/assets/Icinga2_Grundprinzip.png)
 
@@ -103,7 +103,7 @@ Monitoringszenarien abbilden kann.
 #VSLIDE
 ### Hard und Softstates
 
-Ein Service Check muss eine bestimmte Anzahl (`max_check_attempts`) von Ergebnissen durchlaufen bevor Notifizierungen ausgelöst werden und der **HARD** Status erreicht wird. 
+Ein Service Check muss eine bestimmte Anzahl (`max_check_attempts`) von Ergebnissen durchlaufen, bevor Notifizierungen ausgelöst werden und der **HARD** Status erreicht wird. 
 
 #HSLIDE
 
@@ -207,7 +207,7 @@ null
 ```
 
 #VSLIDE
-### Dictionarys
+### Dictionaries
 
 ```cpp
 {
@@ -226,7 +226,7 @@ null
 * Services auf Hosts
 * Notifications auf Services/Hosts
 * Abhängigkeiten
-* Scope wird die `assign` und `ignore` Regeln bestimmt
+* Scope wird durch die `assign` und `ignore` Regeln bestimmt
 
 #VSLIDE
 
@@ -386,10 +386,10 @@ object CheckCommand "check_http" {
 
 #VSLIDE
 
-* Notifications sind Scripte die bei bestimmten Events aufgerufen werden
+* Notifications sind Scripte, die bei bestimmten Events aufgerufen werden
 * Notifications können an einen User und/oder eine Gruppe gebunden werden.
-* Jede Notification kann einen Filter haben der bestimmt zu welchen Zeiten sie ausgelöst wird
-* Jeder User kann einen Filter haben der bestimmt wann er notifiziert werden will. 
+* Jede Notification kann einen Filter haben, der bestimmt zu welchen Zeiten sie ausgelöst wird
+* Jeder User kann einen Filter haben, der bestimmt wann er notifiziert werden will. 
 * Über `types` und `states` Filter kann man einstellen bei welchen Events die Notification auslöst.
 
 #VSLIDE
@@ -465,7 +465,7 @@ TEMPLATE
 
 #VSLIDE
 
-* Eskalation ermöglichen es Notifications nach einer bestimmten Zeit zu eskalieren 
+* Eskalationen ermöglichen es Notifications nach einer bestimmten Zeit zu eskalieren 
 * Mehrere Eskalationen können gleichzeitig und überlappend aktiv sein
 
 #VSLIDE
@@ -558,9 +558,9 @@ apply ScheduledDowntime "backup-downtime" to Service {
 
 #VSLIDE
 
-* Abhängigkeiten werden benutzt um Beziehungen zwischen Hosts und/oder Services auszudrücken
+* Abhängigkeiten werden benutzt, um Beziehungen zwischen Hosts und/oder Services auszudrücken
 * Abhängigkeiten werden zur Erreichbarkeitsberechnung benutzt
-* Abhängige Services / Hosts erzeugen keine Notifications wenn ihr Parent nicht erreichbar ist
+* Abhängige Services / Hosts erzeugen keine Notifications, wenn ihr Parent nicht erreichbar ist
 * zwischen einem Host und seinen Services besteht eine implizite Abhängigkeit
 * Abhängigkeiten reagieren nur auf Hard States (ausser `ignore_soft_states` ist `false`)
 
@@ -634,7 +634,7 @@ apply Dependency "disable-host-service-checks" to Service {
 * Modellierung von Business Views
 * *Manager* Kompatibilität
 * Simulation von Incidents
-* Webbasiserter Editor
+*  webbasierter Editor
 
 #VSLIDE
 
