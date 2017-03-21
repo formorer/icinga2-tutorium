@@ -593,12 +593,6 @@ apply Dependency "disable-host-service-checks" to Service {
 * **Sticky** Acknowledgement: das Acknowledgment verschwindet erst bei einem **OK** Status
 * **Expiring** Ack: Wenn sich um das Problem nicht nach einer bestimmten Zeit gekümmert wurde, wird die Bestätigung entfernt
 
-
-#HSLIDE 
-
-## Zonen (FIXME)
-
-
 #HSLIDE
 
 ## Agenten
