@@ -4,6 +4,16 @@
 #### Frühjahrsfachgespräch der GUUG 2017
 
 #HSLIDE
+
+##Bevor wir beginnen
+
+```bash
+# git clone https://github.com/formorer/icinga2-tutorium.git
+# cd icinga2-tutorium/vagrant/icinga2_icinga2web_grafana
+# vagrant up
+```
+
+#HSLIDE
 ## Vorstellungsrunde
 
 #VSLIDE
