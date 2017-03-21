@@ -642,7 +642,6 @@ apply Service "apt" {
 
 #VSLIDE
 
-
 ### Icinga2 API 
 
 * JSON/REST basierte API
@@ -675,7 +674,7 @@ curl -u $ICINGA2_API_USER:$ICINGA2_API_PASSWORD \
 ```
 ## Erweiterungen / Integration
 
-#VSLIDE
+#HSLIDE
 
 ### [Icinga-web2-director](https://github.com/Icinga/icingaweb2-module-director)
 
